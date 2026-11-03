@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Información detallada sobre la API football-data.org, licencias, atribuciones y transformación de datos para el proyecto de Lenguaje de Marcas.">
+    <title>Sobre los datos - Fútbol Data LaLiga</title>
+</head>
+<body>
+<!-- Enlace de salto accesible al contenido principal -->
+<a href="#main-content">Saltar al contenido principal</a>
+
+<!-- Cabecera y Navegación Principal -->
+<header>
+    <p>Fútbol Data LaLiga</p>
+    <nav aria-label="Navegación principal">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="comparativa.html">Comparativa</a></li>
+            <li><a href="sobre-los-datos.html" aria-current="page">Sobre los datos</a></li>
+            <li><a href="propuesta.html">Propuesta</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Contenido Principal -->
+<main id="main-content">
+    <h1>Sobre los Datos y la API</h1>
+
+    <section>
+        <h2>Información de la Fuente de Datos</h2>
+        <p>Los datos que alimentan este sitio web proceden de la interfaz de programación de aplicaciones (API) <strong>football-data.org</strong>.</p>
+        <ul>
+            <li><strong>Mantenimiento:</strong> Desarrollada y mantenida por Daniel Freitag.</li>
+            <li><strong>Documentación oficial:</strong> <a href="https://www.football-data.org/documentation" target="_blank" rel="noopener">Documentación de football-data.org</a>.</li>
+            <li><strong>Condiciones de uso y licencia:</strong> Utiliza un plan gratuito (*Free Tier*) con un límite de peticiones por minuto y la obligación de incluir el token de autenticación (`X-Auth-Token`). Requiere atribución visible al proveedor de los datos deportivos.</li>
+            <li><strong>Peticiones realizadas:</strong> Se han realizado solicitudes HTTP GET para consultar información de competiciones, calendarios, clasificaciones y detalles específicos de los equipos de LaLiga.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Transformación de Datos: Del JSON al HTML</h2>
+        <p>Para construir las fichas y los catálogos del sitio, los datos estructurados en formato JSON que devuelve la API se transforman de manera semántica en etiquetas HTML.</p>
+
+        <h3>1. Fragmento real del JSON original</h3>
+        <pre><code>
+{
+  "id": 86,
+  "name": "Real Madrid CF",
+  "shortName": "Real Madrid",
+  "tla": "RMA",
+  <span class="hljs-attr">"crest"</span>: <span class="hljs-string">"https://crests.football-data.org/86.png"</span>,
+  "founded": 1902,
+  "clubColors": "White / Blue"
+}
+            </code></pre>
+
+        <h3>2. Equivalente en HTML semántico</h3>
+        <p>El fragmento anterior se ha transformado en el siguiente marcado estructurado dentro de la ficha del equipo:</p>
+        <pre><code>
+&lt;article&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Real Madrid CF&lt;/h1&gt;
+        &lt;figure&gt;
+            &lt;img src="../assets/img/real-madrid.png" alt="Escudo oficial del Real Madrid CF" width="150" height="150"&gt;
+            &lt;figcaption&gt;Escudo oficial del Real Madrid CF&lt;/figcaption&gt;
+        &lt;/figure&gt;
+    &lt;/header&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Datos Identificativos&lt;/h2&gt;
+        &lt;dl&gt;
+            &lt;dt&gt;Siglas / Ticker&lt;/dt&gt;
+            &lt;dd&gt;RMA&lt;/dd&gt;
+            &lt;dt&gt;Año de fundación&lt;/dt&gt;
+            &lt;dd&gt;&lt;time datetime="1902"&gt;1902&lt;/time&gt;&lt;/dd&gt;
+            &lt;dt&gt;Colores del club&lt;/dt&gt;
+            &lt;dd&gt;White / Blue&lt;/dd&gt;
+        &lt;/dl&gt;
+    &lt;/section&gt;
+&lt;/article&gt;
+            </code></pre>
+    </section>
+</main>
+
+<!-- Pie de página -->
+<footer>
+    <p>&copy; 2026 Proyecto de Lenguaje de Marcas - Datos obtenidos de football-data.org</p>
+</footer>
+</body>
+</html>

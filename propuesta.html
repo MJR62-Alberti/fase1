@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulario para proponer la incorporación de un nuevo equipo al catálogo de LaLiga basándose en la estructura de datos de football-data.org">
+    <title>Propuesta de Nuevo Equipo - Fútbol Data LaLiga</title>
+</head>
+<body>
+<!-- Enlace de salto accesible al contenido principal -->
+<a href="#main-content">Saltar al contenido principal</a>
+
+<!-- Cabecera y Navegación Principal -->
+<header>
+    <p>Fútbol Data LaLiga</p>
+    <nav aria-label="Navegación principal">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="comparativa.html">Comparativa</a></li>
+            <li><a href="sobre-los-datos.html">Sobre los datos</a></li>
+            <li><a href="propuesta.html" aria-current="page">Propuesta</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Contenido Principal -->
+<main id="main-content">
+    <h1>Propuesta de Nuevo Elemento al Catálogo</h1>
+    <p>¿Echas de falta algún equipo en nuestra base de datos? Utiliza el siguiente formulario estructurado a partir del esquema JSON de la API para proponer un nuevo registro.</p>
+
+    <form action="#" method="post">
+
+        <!-- Grupo 1: Datos Generales de Identidad -->
+        <fieldset>
+            <legend>1. Datos Generales de Identidad</legend>
+
+            <p>
+                <label for="nombre-equipo">Nombre oficial del equipo <abbr title="obligatorio" aria-label="obligatorio">*</abbr>:</label>
+                <input type="text" id="nombre-equipo" name="nombre_equipo" required placeholder="Ej. Real Club Deportivo">
+            </p>
+
+            <p>
+                <label for="siglas-tla">Siglas / Ticker (TLA) <abbr title="obligatorio" aria-label="obligatorio">*</abbr>:</label>
+                <input type="text" id="siglas-tla" name="siglas_tla" required maxlength="3" placeholder="Ej. RCD">
+            </p>
+
+            <p>
+                <label for="fecha-fundacion">Fecha de fundación <abbr title="obligatorio" aria-label="obligatorio">*</abbr>:</label>
+                <input type="date" id="fecha-fundacion" name="fecha_fundacion" required min="1850-01-01" max="2026-12-31">
+            </p>
+        </fieldset>
+
+        <!-- Grupo 2: Identuidad Visual y Estadios -->
+        <fieldset>
+            <legend>2. Identidad Visual y Ubicación</legend>
+
+            <p>
+                <label for="url-escudo">URL del escudo oficial (Imagen) <abbr title="obligatorio" aria-label="obligatorio">*</abbr>:</label>
+                <input type="url" id="url-escudo" name="url_escudo" required placeholder="https://crests.football-data.org/id.png">
+            </p>
+
+            <p>
+                <label for="nombre-estadio">Nombre del estadio local:</label>
+                <input type="text" id="nombre-estadio" name="nombre_estadio" placeholder="Ej. Estadio Municipal">
+            </p>
+
+            <p>
+                <label for="colores-club">Colores oficiales del club:</label>
+                <input type="text" id="colores-club" name="colores_club" placeholder="Ej. Azul / Blanco">
+            </p>
+        </fieldset>
+
+        <!-- Grupo 3: Datos Estadísticos y Categóricos -->
+        <fieldset>
+            <legend>3. Datos Estadísticos y Categoría</legend>
+
+            <p>
+                <label for="categoria-liga">Categoría en la competición <abbr title="obligatorio" aria-label="obligatorio">*</abbr>:</label>
+                <select id="categoria-liga" name="categoria_liga" required>
+                    <option value="">-- Selecciona una categoría --</option>
+                    <option value="champions">Zona de Liga de Campeones</option>
+                    <option value="europa">Zona Europea y Media Tabla</option>
+                    <option value="permanencia">Zona de Lucha por la Permanencia</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="puntos-actuales">Puntos actuales en la clasificación <abbr title="obligatorio" aria-label="obligatorio">*</abbr>:</label>
+                <input type="number" id="puntos-actuales" name="puntos_actuales" required min="0" max="114" value="0">
+            </p>
+
+            <p>
+                <label for="observaciones">Observaciones o descripción adicional (Opcional):</label>
+                <textarea id="observaciones" name="observaciones" rows="4" cols="40" placeholder="Añade cualquier detalle relevante sobre el rendimiento del equipo..."></textarea>
+            </p>
+        </fieldset>
+
+        <p>
+            <button type="submit">Enviar Propuesta de Elemento</button>
+        </p>
+
+    </form>
+</main>
+
+<!-- Pie de página -->
+<footer>
+    <p>&copy; 2026 Proyecto de Lenguaje de Marcas - Datos obtenidos de football-data.org</p>
+</footer>
+</body>
+</html>
